@@ -1,0 +1,17 @@
+body {
+    background-image: url(recursos/imagenes/fondo.jpg)
+}
+.formingreso {
+    background-color: darkslategray;
+    padding: 40px;
+    border-radius: 10px;
+    height: 500px;
+    width: 300px;
+    border: 1px solid black;
+    box-shadow: 0 0 40px -10px; 
+    margin: auto;
+}
+
+#btn-guardar {
+    margin: auto;
+}
