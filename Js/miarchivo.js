@@ -31,33 +31,46 @@ const cargarRegistro = () => {
     inputNombre.value=''
     inputCantidad.value=''
     inputPrecio.value=''
-    inputProducto.value=''
-
+    inputProducto.value='';
     // Agregando informacion al front
-
     const listaIngresos = document.querySelector ('#lista')
     const _registros = localStorage.getItem('registros')
     const registrosParse = JSON.parse(_registros)
     console.log (_registros)
 
-// Recorrer el array "registros" 
+    // Recorrer el array "registros" 
 
     registrosParse.forEach((_registros) => {
-      const tr = document.createElement ('tr')
-      tr.innerHTML = ` 
+    const tr = document.createElement ('tr')
+    tr.innerHTML = ` 
         <th scope="row" class="table-success">${_registros.Nombre}</th>
         <td class="table-success">${_registros.Producto}</td>
         <td class="table-success">${_registros.Cantidad}</td>
         <td class="table-success">${_registros.Precio}</td>
         `
-      listaIngresos.appendChild(tr) 
-});   
+    listaIngresos.append(tr) 
+})   
+};
 
 
-}
-
-btnCargar.addEventListener ('click',cargarRegistro)
 localStorage.removeItem('registros')
+btnCargar.addEventListener ('click',() => {
+    Swal.fire ({
+        title: 'Confirma el ingreso?',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Confirmar',
+    denyButtonText: `No confirmar`,
+    }).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+        Swal.fire('Confirmado', '', 'success')
+        cargarRegistro()
+    } else if (result.isDenied) {
+        Swal.fire('No se guardaron los cambios', '', 'info')
+    }
+    })
+})
 
 
 
