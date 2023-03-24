@@ -32,3 +32,12 @@ body {
 thead {
     background-color: darkslategray;
 }
+
+
+.api {
+    width: 300px;
+    padding: 15px;
+    margin: auto;
+    border: solid 1px black;
+
+}

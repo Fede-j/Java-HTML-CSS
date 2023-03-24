@@ -38,7 +38,7 @@ const cargarRegistro = () => {
     const registrosParse = JSON.parse(_registros)
     // Recorrer el array "registros" 
 
-    registrosParse.lenght -1 ((registro) => {
+    registrosParse.forEach ((registro) => {
     const tr = document.createElement ('tr')
     tr.innerHTML = ` 
         <th scope="row" class="table-success">${registro.Nombre}</th>
