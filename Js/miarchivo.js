@@ -36,17 +36,15 @@ const cargarRegistro = () => {
     const listaIngresos = document.querySelector ('#lista')
     const _registros = localStorage.getItem('registros')
     const registrosParse = JSON.parse(_registros)
-    console.log (_registros)
-
     // Recorrer el array "registros" 
 
-    registrosParse.forEach((_registros) => {
+    registrosParse.lenght -1 ((registro) => {
     const tr = document.createElement ('tr')
     tr.innerHTML = ` 
-        <th scope="row" class="table-success">${_registros.Nombre}</th>
-        <td class="table-success">${_registros.Producto}</td>
-        <td class="table-success">${_registros.Cantidad}</td>
-        <td class="table-success">${_registros.Precio}</td>
+        <th scope="row" class="table-success">${registro.Nombre}</th>
+        <td class="table-success">${registro.Producto}</td>
+        <td class="table-success">${registro.Cantidad}</td>
+        <td class="table-success">${registro.Precio}</td>
         `
     listaIngresos.append(tr) 
 })   
